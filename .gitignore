@@ -1,32 +1,83 @@
-# If you prefer the allow list template instead of the deny list, see community template:
-# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
-#
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+# ============================================================
+# General Purpose Event & Timeline Intelligence Platform
+# .gitignore
+# ============================================================
 
-# Test binary, built with `go test -c`
-*.test
+# --- OS files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
 
-# Code coverage profiles and other test artifacts
-*.out
-coverage.*
-*.coverprofile
-profile.cov
+# --- Editor/IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.editorconfig.local
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
-
-# Go workspace file
-go.work
-go.work.sum
-
-# env file
+# --- Environment / secrets ---
 .env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
 
-# Editor/IDE
-# .idea/
-# .vscode/
+# --- SQLite databases (do not commit real data) ---
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+data/
+
+# --- Go ---
+backend/bin/
+backend/vendor/
+*.test
+*.out
+# Keep go.sum (important for reproducibility)
+
+# --- Node / npm / Svelte / Vite ---
+frontend/node_modules/
+frontend/dist/
+frontend/.svelte-kit/
+frontend/build/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+build_artifacts/
+
+# --- Build artifacts ---
+dist/
+build/
+*.tar.gz
+*.zip
+
+# --- Logs ---
+logs/
+*.log
+
+# --- Temporary files ---
+tmp/
+temp/
+.tmp/
+
+# --- Build menu state / process tracking ---
+.build_mode
+.build_pids
+logs/
+.go/

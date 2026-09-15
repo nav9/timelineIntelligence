@@ -1,0 +1,232 @@
+/* =============================================================
+   Forms — input fields, labels, validation feedback
+   ============================================================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  margin-bottom: var(--sp-4);
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  -webkit-appearance: none;
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.form-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-input.error {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+/* Password field wrapper — contains input + eye button */
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-field .form-input {
+  padding-right: 2.5rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: var(--sp-2);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: var(--sp-1);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+  line-height: 1;
+}
+
+.password-toggle:hover {
+  color: var(--text-secondary);
+}
+
+.form-hint {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: var(--sp-1);
+}
+
+.form-error {
+  font-size: var(--text-xs);
+  color: var(--error);
+  margin-top: var(--sp-1);
+}
+
+/* --- Password strength bar --- */
+.strength-bar {
+  display: flex;
+  gap: 3px;
+  margin-top: var(--sp-1);
+}
+
+.strength-segment {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--bg-elevated);
+  transition: background var(--transition);
+}
+
+.strength-segment.weak   { background: var(--error); }
+.strength-segment.fair   { background: var(--warning); }
+.strength-segment.good   { background: #84cc16; }
+.strength-segment.strong { background: var(--success); }
+
+.strength-label {
+  font-size: var(--text-xs);
+  margin-top: var(--sp-1);
+}
+
+.strength-label.weak   { color: var(--error); }
+.strength-label.fair   { color: var(--warning); }
+.strength-label.good   { color: #84cc16; }
+.strength-label.strong { color: var(--success); }
+
+/* --- Auth card (login/register forms) --- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+  background: var(--bg-primary);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-8) var(--sp-6);
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--sp-6);
+}
+
+.auth-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-bottom: var(--sp-1);
+}
+
+.auth-header p {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-4);
+}
+
+.auth-logo svg {
+  width: 28px;
+  height: 28px;
+}
+
+.auth-logo span {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.auth-footer {
+  margin-top: var(--sp-5);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.auth-footer a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Feedback list in password validation */
+.feedback-list {
+  list-style: none;
+  margin-top: var(--sp-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.feedback-list li {
+  font-size: var(--text-xs);
+  color: var(--warning);
+  padding-left: var(--sp-3);
+  position: relative;
+}
+
+.feedback-list li::before {
+  content: '·';
+  position: absolute;
+  left: var(--sp-1);
+}
+
+/* --- Responsive --- */
+@media (max-width: 420px) {
+  .auth-card {
+    padding: var(--sp-6) var(--sp-4);
+    border: none;
+    border-radius: 0;
+    min-height: 100vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+  }
+  .auth-page {
+    padding: 0;
+    align-items: stretch;
+  }
+}
